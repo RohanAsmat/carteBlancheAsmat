@@ -1,0 +1,36 @@
+# Logs
+logs
+*.log*
+
+# Dependency directory
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
+node_modules
+
+#dist folder
+build
+
+# ESlint
+.eslintcache
+
+# IDEA/Webstorm project files
+.idea
+*.iml
+
+# Vim swap files
+*.swp
+*.swo
+
+#VSCode metadata
+.vscode
+
+# Vim temp files
+*~
+*.swp
+*.swo
+
+# Mac files
+.DS_Store
+
+# Config
+.env
+ecosystem.config.js
