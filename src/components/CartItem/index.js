@@ -76,7 +76,7 @@ class CartItem extends React.Component {
           <span style={style.serving}>{this.props.serving}</span>
           <span style={style.total}>
             <div>Total</div>
-            <div style={style.totalPrice}>RS {this.props.price}</div>
+            <div style={style.totalPrice}>RS {this.props.price*this.props.quantity}</div>
           </span>
         </div>
       </div>

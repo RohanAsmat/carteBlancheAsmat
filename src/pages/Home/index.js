@@ -15,6 +15,7 @@ class Home extends React.Component {
       cartItems: [],
       searchCategories: CATEGORIES[0].item,
       activeCategories: false,
+      total: 0,
     };
   }
 
@@ -54,6 +55,13 @@ class Home extends React.Component {
 
       if( boolItemInCart === false )
         tempCartItems.push({'name':cellNameFromChild, 'price': price, 'quantity':quantity, 'serving':serving})
+
+        var totalAmount = 0
+        for(var i=0; i < this.state.cartItems.length; i++ )
+          totalAmount = totalAmount + (this.state.cartItems[i].quantity * this.state.cartItems[i].price)
+
+        console.log("total", this.state.cartItems);
+        this.setState({total: totalAmount})
 
 
       console.log(tempCartItems);
@@ -109,7 +117,7 @@ class Home extends React.Component {
             <MiddleArea callbackFromParent={this.middleAreaCallback}  searchCallback={this.searchCallback} activeCell={this.state.activeCell} categories={this.state.categories} searchCategories={this.state.searchCategories} activeCategories={this.state.activeCategories} />
           </Grid>
           <Grid item>
-            <RightArea itemCount={this.state.cartItems.length} cartItems={this.state.cartItems}/>
+            <RightArea itemCount={this.state.cartItems.length} cartItems={this.state.cartItems} total={this.state.total}/>
           </Grid>
         </Grid>
       </div>
