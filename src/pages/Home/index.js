@@ -15,7 +15,7 @@ class Home extends React.Component {
       cartItems: [],
       searchCategories: CATEGORIES[0].item,
       activeCategories: false,
-      total: 0,
+      total: 0.00,
     };
   }
 
@@ -57,11 +57,11 @@ class Home extends React.Component {
         tempCartItems.push({'name':cellNameFromChild, 'price': price, 'quantity':quantity, 'serving':serving})
 
         var totalAmount = 0
-        for(var i=0; i < this.state.cartItems.length; i++ )
-          totalAmount = totalAmount + (this.state.cartItems[i].quantity * this.state.cartItems[i].price)
+        for( var z =0; z < this.state.cartItems.length; z++ )
+          totalAmount = totalAmount + (this.state.cartItems[z].quantity * this.state.cartItems[z].price)
 
         console.log("total", this.state.cartItems);
-        this.setState({total: totalAmount})
+        this.setState({total: Number(totalAmount).toFixed(2)})
 
 
       console.log(tempCartItems);
@@ -126,10 +126,10 @@ class Home extends React.Component {
 
     var tempCartForRemove = tempCartItems
     for( var k = 0 ; k < tempCartItems.length ; k++ )
-      if( tempCartItems[k].quantity == 0)
+      if( tempCartItems[k].quantity === 0)
         tempCartForRemove.splice(k,1)
 
-    this.setState({categories: tempCategoriesState, cartItems: tempCartForRemove, total: totalAmount});
+    this.setState({categories: tempCategoriesState, cartItems: tempCartForRemove, total: Number(totalAmount).toFixed(2)});
 
   }
 
