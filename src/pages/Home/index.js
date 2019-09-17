@@ -112,11 +112,25 @@ class Home extends React.Component {
             tempCategoriesState[i].item[j].quantity = quantity;
 
     var tempCartItems = this.state.cartItems
+    var totalAmount = 0
     for( var x = 0 ; x < this.state.cartItems.length ; x++)
+    {
       if( this.state.cartItems[x].name === nameFromChild )
+      {
+        totalAmount = totalAmount + ( quantity * this.state.cartItems[x].price)
         tempCartItems[x].quantity = quantity
 
-    this.setState({categories: tempCategoriesState, cartItems: tempCartItems});
+      }else
+        totalAmount = totalAmount + (this.state.cartItems[x].quantity * this.state.cartItems[x].price)
+
+    }
+
+    var tempCartForRemove = tempCartItems
+    for( var k = 0 ; k < tempCartItems.length ; k++ )
+      if( tempCartItems[k].quantity == 0)
+        tempCartForRemove.splice(k,1)
+
+    this.setState({categories: tempCategoriesState, cartItems: tempCartForRemove, total: totalAmount});
 
   }
 

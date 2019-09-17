@@ -84,6 +84,9 @@ class CartItem extends React.Component {
       if( Number(this.props.quantity) !== 0 && sign === '-')
         tempVar = tempVar - 1
 
+      if( Number(this.props.quantity) === 0 )
+        tempVar = 0
+
       console.log("COUNTER", tempVar);
       callBack(this.props.name, tempVar)
 
