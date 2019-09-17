@@ -2,6 +2,14 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 
 class CartItem extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      counter: this.props.quantity,
+    };
+  }
+
   render () {
     const style = {
       mainCell: {
@@ -44,6 +52,15 @@ class CartItem extends React.Component {
         fontFamily: 'Roboto',
         backgroundColor: '#f0f0f2'
       },
+      counterLabel: {
+        backgroundColor: '#ffffff',
+        color: '#111111',
+        fontSize: '10px',
+        paddingLeft: '12px',
+        paddingRight: '12px',
+        paddingTop: '8px',
+        paddingBottom: '8px'
+      }
     };
 
     this.handleHoverPlus = () => {
@@ -59,6 +76,18 @@ class CartItem extends React.Component {
       document.getElementById('minus'+this.props.name).style.backgroundColor = '#f0f0f2' ;
     }
 
+    const clickMe = (sign) => (event) => {
+      var tempVar = this.state.counter
+
+      if( Number(this.state.counter) !== 0 && sign === '+')
+        tempVar = tempVar + 1
+
+      if( Number(this.state.counter) !== 0 && sign === '-')
+        tempVar = tempVar - 1
+
+      this.setState({counter: tempVar})
+    }
+
     return(
       <div style={style.mainCell}>
         <div style={style.itemTitle}>
@@ -66,11 +95,14 @@ class CartItem extends React.Component {
         </div>
         <div style={style.itemContent}>
           <span style={style.quantityStepper}>
-            <span id={"plus"+this.props.name} onMouseOver={this.handleHoverPlus} onMouseLeave={this.handleHoveOutPlus} style={style.plusButton}>
-            +
+            <span id={"plus"+this.props.name} onClick={clickMe('+')} onMouseOver={this.handleHoverPlus} onMouseLeave={this.handleHoveOutPlus} style={style.plusButton}>
+              +
             </span>
-            <span id={"minus"+this.props.name} onMouseOver={this.handleHoverMinus} onMouseLeave={this.handleHoveOutMinus} style={style.plusButton} className={style.myButtonClass}>
-            -
+            <span style={style.counterLabel}>
+              {this.props.quantity}
+            </span>
+            <span id={"minus"+this.props.name} onClick={clickMe('-')} onMouseOver={this.handleHoverMinus} onMouseLeave={this.handleHoveOutMinus} style={style.plusButton} className={style.myButtonClass}>
+              -
             </span>
           </span>
           <span style={style.serving}>{this.props.serving}</span>
