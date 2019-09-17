@@ -6,7 +6,6 @@ class CartItem extends React.Component {
     super(props);
 
     this.state = {
-      counter: this.props.quantity,
     };
   }
 
@@ -76,16 +75,18 @@ class CartItem extends React.Component {
       document.getElementById('minus'+this.props.name).style.backgroundColor = '#f0f0f2' ;
     }
 
-    const clickMe = (sign) => (event) => {
-      var tempVar = this.state.counter
+    const clickMe = (sign, callBack) => (event) => {
+      var tempVar = this.props.quantity
 
-      if( Number(this.state.counter) !== 0 && sign === '+')
+      if( Number(this.props.quantity) !== 0 && sign === '+')
         tempVar = tempVar + 1
 
-      if( Number(this.state.counter) !== 0 && sign === '-')
+      if( Number(this.props.quantity) !== 0 && sign === '-')
         tempVar = tempVar - 1
 
-      this.setState({counter: tempVar})
+      console.log("COUNTER", tempVar);
+      callBack(this.props.name, tempVar)
+
     }
 
     return(
@@ -95,13 +96,13 @@ class CartItem extends React.Component {
         </div>
         <div style={style.itemContent}>
           <span style={style.quantityStepper}>
-            <span id={"plus"+this.props.name} onClick={clickMe('+')} onMouseOver={this.handleHoverPlus} onMouseLeave={this.handleHoveOutPlus} style={style.plusButton}>
+            <span id={"plus"+this.props.name} onClick={clickMe('+', this.props.callbackFromParent)} onMouseOver={this.handleHoverPlus} onMouseLeave={this.handleHoveOutPlus} style={style.plusButton}>
               +
             </span>
             <span style={style.counterLabel}>
               {this.props.quantity}
             </span>
-            <span id={"minus"+this.props.name} onClick={clickMe('-')} onMouseOver={this.handleHoverMinus} onMouseLeave={this.handleHoveOutMinus} style={style.plusButton} className={style.myButtonClass}>
+            <span id={"minus"+this.props.name} onClick={clickMe('-', this.props.callbackFromParent)} onMouseOver={this.handleHoverMinus} onMouseLeave={this.handleHoveOutMinus} style={style.plusButton} className={style.myButtonClass}>
               -
             </span>
           </span>

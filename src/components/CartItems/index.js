@@ -14,7 +14,7 @@ class CartItems extends React.Component {
 
     return(
       <div style={style.mainCell}>
-        {this.props.cartItems.map(item => <CartItem key={'cartItems'+item.name} name={item.name} price={item.price} quantity={item.quantity} serving={item.serving} />)}
+        {this.props.cartItems.map(item => <CartItem key={'cartItems'+item.name} callbackFromParent={this.props.callbackFromParent} name={item.name} price={item.price} quantity={item.quantity} serving={item.serving} />)}
       </div>
     )
   }

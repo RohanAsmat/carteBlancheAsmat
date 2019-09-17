@@ -21,7 +21,7 @@ class RightArea extends React.Component {
     return(
       <div style={style.mainCell}>
         <CartItemHeader itemCount={this.props.itemCount} />
-        <CartItems cartItems={this.props.cartItems}/>
+        <CartItems callbackFromParent={this.props.callbackFromParent} cartItems={this.props.cartItems}/>
         <CartFooter total={this.props.total} />
       </div>
     )
