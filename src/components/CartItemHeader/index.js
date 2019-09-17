@@ -1,6 +1,7 @@
 import React from 'react';
 import MoreVert from '@material-ui/icons/MoreVert';
 
+
 const CartItemHeader = props => {
   const style = {
     mainCell: {
@@ -47,19 +48,17 @@ const CartItemHeader = props => {
     }
   }
 
-
   return (
     <div>
       <div style={style.mainCell}>
         <div style={style.headerTitle}>
-          Cart Items <span style={style.itemCount}><span style={style.text}>{props.itemCount}</span></span>
+          Cart Items
+          <span style={style.itemCount}>
+            <span style={style.text}>{props.itemCount}</span>
+          </span>
         </div>
-        <div style={style.headerExtraIcon}>
-          <MoreVert/>
-        </div>
-        <div style={style.headerExtra}>
-          Order Number: 004
-        </div>
+        <div style={style.headerExtraIcon}><MoreVert/></div>
+        <div style={style.headerExtra}>Order Number: 004</div>
       </div>
     </div>
   );

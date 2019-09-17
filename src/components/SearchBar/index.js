@@ -64,6 +64,7 @@ class SearchBar extends React.Component {
             startAdornment: <InputAdornment position="start"><SearchIcon /></InputAdornment>,
             disableUnderline: true,
           }}
+          placeholder="Search Item"
           style={style.input}
           onChange={this.filterList}
         />
