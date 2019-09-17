@@ -106,7 +106,6 @@ class Home extends React.Component {
     var tempCategoriesState = this.state.categories;
 
     for( var i = 0 ; i < this.state.categories.length ; i++ )
-      if( this.state.activeCell === this.state.categories[i].name )
         for( var j = 0 ; j < this.state.categories[i].item.length ; j++)
           if( this.state.categories[i].item[j].name === nameFromChild )
             tempCategoriesState[i].item[j].quantity = quantity;
