@@ -27,8 +27,8 @@ const Navbar = props => {
 
   return (
     <AppBar showMenuIconButton={false}
-            title={<span><span style={{  color: '#CFD5DD'  }}>Rest</span>
-                         <span style={{  color: 'black'  }}>raunt</span>
+            title={<span><span style={{color: '#CFD5DD'}}>Rest</span>
+                         <span style={{color: 'black'}}>raunt</span>
                    </span>}
             style={{backgroundColor:'white', paddingRight:'0px'}}>
     <Toolbar style={{backgroundColor:'#54ad70', width:'24px'}}>
@@ -41,7 +41,8 @@ const Navbar = props => {
     </Toolbar>
     <Toolbar style={{backgroundColor:'#5bbc79', width:'30px'}}>
         <Avatar alt="Adam Lane"
-                style={{backgroundColor:'#fbf7f5', color:'#757575'}}>AL</Avatar>
+                style={{backgroundColor:'#fbf7f5', color:'#757575'}}>AL
+        </Avatar>
     </Toolbar>
     </AppBar>
   );

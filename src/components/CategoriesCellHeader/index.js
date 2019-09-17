@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const CategoriesCellHeader = props => {
   const style = {
     mainCell: {
@@ -22,7 +23,10 @@ const CategoriesCellHeader = props => {
   }
   return (
     <div style={style.mainCell}>
-      <div style={style.categories}><span>Categories</span><span style={style.countStyle}>({props.count})</span></div>
+      <div style={style.categories}>
+        <span>Categories</span>
+        <span style={style.countStyle}>({props.count})</span>
+      </div>
     </div>
   );
 };

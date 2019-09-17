@@ -3,15 +3,8 @@ import CartItemHeader from '../../components/CartItemHeader';
 import CartItems from '../../components/CartItems';
 import CartFooter from '../../components/CartFooter';
 
-class RightArea extends React.Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-    };
-  }
-
-  render () {
+const RightArea = props => {
     const style = {
       mainCell: {
         height: '90vh',
@@ -20,12 +13,12 @@ class RightArea extends React.Component {
 
     return(
       <div style={style.mainCell}>
-        <CartItemHeader itemCount={this.props.itemCount} />
-        <CartItems callbackFromParent={this.props.callbackFromParent} cartItems={this.props.cartItems}/>
-        <CartFooter total={this.props.total} />
+        <CartItemHeader itemCount={props.itemCount} />
+        <CartItems callbackFromParent={props.callbackFromParent}
+                   cartItems={props.cartItems}/>
+        <CartFooter total={props.total} />
       </div>
     )
-  }
 }
 
 export default RightArea;

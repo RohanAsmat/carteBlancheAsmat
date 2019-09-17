@@ -49,7 +49,7 @@ const CartItem = props => {
         fontSize: '10px',
         paddingLeft: '12px',
         paddingRight: '12px',
-        paddingTop: '8px',
+        paddingTop: '9px',
         paddingBottom: '8px'
       }
     };
@@ -85,18 +85,20 @@ const CartItem = props => {
         <div style={style.itemTitle}>{props.name}</div>
         <div style={style.itemContent}>
           <span style={style.quantityStepper}>
-            <span id={"plus"+props.name}
-                  onClick={clickMe('+', props.callbackFromParent)}
-                  onMouseOver={this.handleHoverPlus}
-                  onMouseLeave={this.handleHoveOutPlus}
-                  style={style.plusButton}>+</span>
-            <span style={style.counterLabel}>{props.quantity}</span>
             <span id={"minus"+props.name}
                   onClick={clickMe('-', props.callbackFromParent)}
                   onMouseOver={this.handleHoverMinus}
                   onMouseLeave={this.handleHoveOutMinus}
                   style={style.plusButton}
-                  className={style.myButtonClass}>-</span>
+                  className={style.myButtonClass}>-
+            </span>
+            <span style={style.counterLabel}>{props.quantity}</span>
+            <span id={"plus"+props.name}
+                  onClick={clickMe('+', props.callbackFromParent)}
+                  onMouseOver={this.handleHoverPlus}
+                  onMouseLeave={this.handleHoveOutPlus}
+                  style={style.plusButton}>+
+            </span>
           </span>
           <span style={style.serving}>{props.serving}</span>
           <span style={style.total}>

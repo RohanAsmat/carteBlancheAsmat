@@ -1,6 +1,7 @@
 import React from 'react';
 import ChevronRight from '@material-ui/icons/ChevronRight';
 
+
 const CategoriesCell = props => {
   const style = {
     mainCell: {
@@ -49,10 +50,14 @@ const CategoriesCell = props => {
   }
 
   return (
-    <div style={ props.activeCell === props.name ? (style.mainCellActive) : (style.mainCell) } onClick={clickMe(props.name, props.callbackFromParent)}>
+    <div style={ props.activeCell === props.name ? (style.mainCellActive) : (style.mainCell) }
+         onClick={clickMe(props.name, props.callbackFromParent)}>
       <div>
-        <div style={ props.activeCell === props.name ? (style.categoriesActive) : (style.categories) }><span>{props.name}</span></div>
-        <div style={ props.activeCell === props.name ? (style.iconActive) : (style.icon) }><ChevronRight /></div>
+        <div style={ props.activeCell === props.name ? (style.categoriesActive)
+                       : (style.categories) }><span>{props.name}</span>
+        </div>
+        <div style={ props.activeCell === props.name ? (style.iconActive)
+                       : (style.icon) }><ChevronRight /></div>
       </div>
     </div>
   );
