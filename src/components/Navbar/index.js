@@ -1,6 +1,9 @@
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
+import Avatar from '@material-ui/core/Avatar';
 import Toolbar from '@material-ui/core/Toolbar';
+import Notification from '@material-ui/icons/NotificationsNone';
+
 
 const Navbar = props => {
   const style = {
@@ -17,7 +20,8 @@ const Navbar = props => {
         fontSize: '13px',
         fontFamily: 'Poppins',
         textAlign: 'left',
-        width: '159px'
+        width: '159px',
+        fontWeight: '500',
       }
     };
 
@@ -28,14 +32,14 @@ const Navbar = props => {
                    </span>}
             style={{backgroundColor:'white', paddingRight:'0px'}}
     >
-    <Toolbar style={{backgroundColor:'#54ad70', width:'32px'}}>
+    <Toolbar style={{backgroundColor:'#54ad70', width:'24px'}}>
+      <Notification style={{color:'white'}} />
     </Toolbar>
     <Toolbar style={{backgroundColor:'#5bbc79'}}>
       <span style={style.profileButton}>
-        <span style={style.profileName}>
-          Adam Lane
-        </span>
+        <span style={style.profileName}>Adam Lane</span>
         <span style={style.profilePic}>
+        <Avatar alt="Adam Lane" src="../../images/1.png"  />
         </span>
       </span>
     </Toolbar>
