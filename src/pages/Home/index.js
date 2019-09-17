@@ -56,7 +56,7 @@ class Home extends React.Component {
 
     this.setState({categories: tempCategoriesState});
 
-    // updating quantity in cart items and a whole row if item not present
+    // updating quantity(&categories) in cart items and a whole row if item not present
     var tempCartItems = this.state.cartItems;
     var boolItemInCart = false;
 
@@ -132,7 +132,7 @@ class Home extends React.Component {
 
     this.setState({categories: tempCategoriesState, cartItems: tempCartForRemove, total: Number(totalAmount).toFixed(2)});
   }
-  
+
   render() {
     return(
       <div>
