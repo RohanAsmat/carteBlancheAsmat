@@ -16,9 +16,11 @@
 4. Please start the web server using the following command: 
     `sudo npm start`
     
+
 ### Note: This application is built on a base boilerplate code inspiration from the [link](https://github.com/InfosecEskimo/React-MaterialUI-Boilerplate)
+
+### Note 2: This application is designed while keeping 1280px as minimum screen size in mind.
 
 
 ### Author 
 Muhammad Rohan Ali Asmat
-17.September.2019
